@@ -35,7 +35,7 @@ framerate = vc.get(cv2.CAP_PROP_FPS)
 vc.release()
 
 # Minimun confidence of the object detection
-CONFIDENCE = args["confidence"] if args["confidence"] is not None else 0.75
+CONFIDENCE = args["confidence"] if args["confidence"] is not None else 0.7
 
 # Maximum distance to associate two objects
 DISTANCE = args["distance"] if args["distance"] is not None else 30
@@ -75,7 +75,7 @@ with tf.compat.v1.Session(config=config) as sess:
     fps = FPS().start()
 
     # Initialize variables to identify the frames and count them
-    frame_id, frame_counter = 1, 2
+    frame_id, frame_counter = 0, 2
 
     while fvs.more():
         frame = fvs.read()

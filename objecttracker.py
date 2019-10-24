@@ -77,7 +77,7 @@ class ObjectTracker:
                     if match == 0:
                         # The centroid wasn't close enough to any tracked object, so it will be
                         # registered as a new object
-                        color = tuple(np.random.randint(256, size=3))
+                        color = tuple(np.random.random(size=3) * 256)
                         pos = (obj_class, (a, b), x1, y1, x2, y2, confidence, frame_id)
                         obj_id = self.next_object_id
                         obj = TrackableObject(obj_id, color, pos)

@@ -14,8 +14,11 @@ class TrackableObject:
 
         (a, b) = self.positions[-3][1]
         (c, d) = self.positions[-1][1]
-        dist = math.sqrt(pow(a - c, 2) + pow(b - d, 2))
-        time = (framerate * 7.0)
+        frame_start = self.positions[-3][7]
+        frame_end = self.positions[-1][7]
+        frames = frame_end - frame_start + 1
+        dist = math.sqrt(pow(a - c, 2) + pow(b - d, 2))        
+        time = framerate * frames
         speed = dist / time
         return True, speed
 

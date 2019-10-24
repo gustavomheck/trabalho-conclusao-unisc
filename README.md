@@ -1,6 +1,6 @@
 # trabalho-conclusao-unisc
 
-Código fonte do Trabalho de Conclusão "Cálculo da diferença de sobreposição de quadros em streaming de vídeo para medição de velocidade em tempo real"
+Código fonte do Trabalho de Conclusão "Cálculo da diferença de sobreposição de quadros em streaming de vídeo para medição de velocidade em tempo real".
 
 Dependências
 -----

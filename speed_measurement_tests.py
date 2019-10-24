@@ -1,6 +1,7 @@
 from predictionsgenerator import PredictionsGenerator
 from objecttracker import ObjectTracker
 import numpy as np
+import cv2
 import unittest2
 
 class SpeedMeasurementTest(unittest2.TestCase):
