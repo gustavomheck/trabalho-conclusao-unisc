@@ -1,9 +1,13 @@
+# trabalho-conclusao-unisc
+
+Código fonte do Trabalho de Conclusão "Cálculo da diferença de sobreposição de quadros em streaming de vídeo para medição de velocidade em tempo real"
+
 Dependências
 -----
 
 Os seguintes pacotes são necessários para executar o programa:
 
-* tensorflow==1.14.0
+* tensorflow-gpu==1.14.0
 * tensornets==0.4.1
 * opencv-contrib-python
 * numpy
@@ -12,16 +16,29 @@ Os seguintes pacotes são necessários para executar o programa:
 Uso
 -----
 
-Há dois arquivos que podem ser executados. O primeiro recebe um vídeo como entrada e realiza a medição de velocidade dos veículos e o segundo contém testes unitários.
+Há dois arquivos que podem ser executados:
 
-python speed_measurement.py
-python speed_measurement_tests.py
+```
+speed_measurement.py # arquivo principal
+speed_measurement_tests.py # testes unitários
+```
 
 Argumentos:
 
 ```
---input # caminho do arquivo de entrada
---output # salvar cada quadro e as predições na pasta /output (deve ser criada manualmente)
---distance # distância máxima para associar dois objetos, o padrão é 30
---confidence # confiança mínima da predição, o padrão é 0.75
+-i
+--input
+O caminho do arquivo de entrada
+
+-o
+--output 
+Salvar cada quadro e as predições na pasta /output (deve ser criada manualmente)
+
+-d
+--distance
+A distância máxima para associar dois objetos, o padrão é 30
+
+-c
+--confidence 
+A confiança mínima da predição, o padrão é 0.75
 ```
