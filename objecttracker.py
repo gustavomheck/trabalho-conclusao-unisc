@@ -58,6 +58,7 @@ class ObjectTracker:
                 for obj_id in self.objects:
                     last_pos = self.objects[obj_id].get_last_position()
                     (c, d) = last_pos[1]
+                    
                     dist = math.sqrt(pow(a - c, 2) + pow(b - d, 2))
                     if dist <= self.max_distance:
                         # If the distance between two centroids is smaller
@@ -105,7 +106,7 @@ class ObjectTracker:
                     cv2.rectangle(frame, (oxl, oyl + 4), (oxl + twl + 4, oyl - thl - 1), color, cv2.FILLED)
                     cv2.putText(frame, label, (oxl + 2, oyl), font, scale, white, thickness=1, lineType=line)
                     success, speed = obj.measure_speed(self.framerate)
-                    if success:
+                    if False:
                         # Only measure the speed if we have 3 frames of information
                         text = "{:.3f} px/s".format(speed)
                         (tws, ths) = cv2.getTextSize(text, font, fontScale=scale, thickness=1)[0]

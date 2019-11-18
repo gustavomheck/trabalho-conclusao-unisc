@@ -16,7 +16,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Window title
-TITLE = "output"
+TITLE = "Output"
 
 # Construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -87,6 +87,9 @@ with tf.compat.v1.Session(config=config) as sess:
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
+        # Update de FPS counter
+        fps.update()
+
         # Increment the frame ID
         frame_id += 1
 
@@ -102,17 +105,16 @@ with tf.compat.v1.Session(config=config) as sess:
         frame = cv2.resize(frame, (W, H))
         img = np.array(frame).reshape(-1, H, W, 3)
 
-        # Run the object detection and get the predictions
+        # Run the object detection and get the boxes
         preds = sess.run(model.preds, {inputs: model.preprocess(img)}) 
         boxes = model.get_boxes(preds, img.shape[1:3])
-        predictions = np.array(boxes)
+        #predictions = np.array(boxes)
 
         # Update the object tracker
-        tracker.update(frame, frame_id, predictions)
+        tracker.update(frame, frame_id, boxes)
 
-        # Show the frame on a window and update de FPS counter
+        # Show the frame on a window
         cv2.imshow(TITLE, frame)
-        fps.update()
     
     # Stop FPS counter and video
     fps.stop()
